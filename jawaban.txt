@@ -1,0 +1,85 @@
+Jawaban no 1
+create database myshop;
+
+jawaban no 2
+table users
+create table users (
+	-> id int auto_increment,
+	-> name varchar(255),
+	-> email varchar(255),
+	-> password varchar(255),
+	-> primary key(id)
+);
+
+table items
+create table items (
+	-> id int auto_increment,
+	-> name varchar(255),
+	-> description varchar(255),
+	-> price int,
+	-> stock int,
+	-> category_id int,
+	-> primary key(id),
+	-> foreign key (category_id) references categories(id)
+);
+
+table categories
+create table categories (
+	-> id int auto_increment,
+	-> name varchar(255),
+	-> primary key(id)
+);
+
+jawaban no 3
+insert table users
+insert into users (name,email,password)
+	values ("John Doe","john@doe.com","john123");
+insert into users (name,email,password)
+	values ("Jane Doe","jane@doe.com","jenita123");
+
+insert table categories
+insert into categories (name)
+		values ("gadget");
+insert into categories (name)
+		values ("cloth");
+insert into categories (name)
+		values ("men");
+insert into categories (name)
+		values ("women");
+insert into categories (name)
+		values ("branded");
+
+insert table items
+insert into items (name, description, price, stock, category_id)
+	values ("Sumsang b50", "hape keren dari merek sumsang", 4000000, 100, 1);
+insert into items (name, description, price, stock, category_id)
+	values ("Uniklooh", "baju keren dari brand ternama", 500000, 20, 2);
+insert into items (name, description, price, stock, category_id)
+	values ("IMHO Watch", "jam tangan anak yang jujur banget", 2000000, 100, 1);
+
+jawaban no 4
+a. tampilkan data users kecuali password
+select id, name, email
+from users;
+
+b. mengambil data items
+select *
+from items
+where price > 1000000;
+
+select *
+from items
+where name LIKE %sang%;
+
+c. join table
+select items.name, items.description, items.price, items.stock, items. category_id, categories.name
+from items
+inner joins categories on items.category_id = categories.id;
+
+jawaban no 5
+mengubah data pada tabel items
+
+update items
+set price = 2500000
+where id = 1;
+
